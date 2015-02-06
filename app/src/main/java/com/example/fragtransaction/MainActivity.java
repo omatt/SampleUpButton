@@ -1,5 +1,6 @@
 package com.example.fragtransaction;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
@@ -52,6 +53,14 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /** Remove transition when going back to Parent Activity
+     */
+    @Override
+    public void onResume() {
+        super.onResume();
+        overridePendingTransition(0, 0);
+    }
+
     /**
      * A placeholder fragment containing a simple view.
      */
@@ -82,7 +91,9 @@ public class MainActivity extends ActionBarActivity {
                 case R.id.btn_new_activity:
                     Log.e(TAG, "New Activity Clicked");
                     Intent intent = new Intent(getActivity(), ChildActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
+                    getActivity().overridePendingTransition(0,0);
                     break;
             }
         }
