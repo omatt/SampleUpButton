@@ -1,5 +1,13 @@
 # SampleUpButton
-Simple implementation of "up button" on ActionBar to navigate back into the previous activity. Fragments was also used to display views inside the activity's container.
+Simple implementation of [`Up Button`](http://developer.android.com/design/patterns/navigation.html) on ActionBar to navigate back into the previous activity. Fragments was also used to display views inside the activity's container.
+
+UI Flow
+* A: Click button from Fragment on Parent Activity intent to Child Activity.
+* B: Click button from Fragment on Child Activity inflates next Fragment on Child Activity's FrameLayout.
+* C: Press back button goes back into your previous fragment/Activity.
+* D: Click up button on the ActionBar will let you go back into your Parent Activity. 
+
+![](http://i.imgur.com/PtCX6RC.png)
 
 Requirements
 --------
